@@ -148,6 +148,21 @@ PII_SHAPES = {
 BASE_COLUMNS = [("ID", "VARCHAR"), ("CREATED_AT", "TIMESTAMP_NTZ"),
                 ("UPDATED_AT", "TIMESTAMP_NTZ"), ("SOURCE_SYSTEM", "VARCHAR")]
 
+# The planted term conflicts, hoisted so `gen/questions.py` can derive the
+# expected answer from the same declaration rather than re-detecting a
+# contradiction with a heuristic. Both generators may see this; the service
+# never does.
+TERM_CONTRADICTIONS = {
+    "Net Revenue": "Gross order value including tax and before any refund "
+                   "adjustment.",
+    "Active Customer": "Any customer with an account, regardless of order "
+                       "history.",
+    "Churn": "A subscription cancelled at any point in its lifetime, "
+             "including immediate reactivations.",
+    "Delivered Shipment": "A shipment marked dispatched by the warehouse, "
+                          "whether or not a delivery scan exists.",
+}
+
 JOBS = ["dbt_daily", "dbt_hourly", "airflow_ingest", "fivetran_sync",
         "spark_batch_nightly"]
 
@@ -307,7 +322,8 @@ class Gen:
         if cname == "ID":
             return f"Primary key. Surrogate id for the {entity.lower()} record."
         if cname.endswith("_AT"):
-            return f"UTC timestamp for {pretty.replace(' at', '')}."
+            return f"UTC timestamp recording when the {entity.lower()} record " \
+                   f"was {pretty[:-3].strip()}."
         if cname.endswith("_AMOUNT") or cname in ("LIST_PRICE", "MRR_AMOUNT"):
             return f"{pretty.title()} in the record's settlement currency, " \
                    "two decimal places."
@@ -617,20 +633,9 @@ class Gen:
 
         # 5. Term conflict: the glossary definition and the column description
         #    say different things about the same field, on purpose.
-        contradictions = {
-            "Net Revenue": "Gross order value including tax and before any "
-                           "refund adjustment.",
-            "Active Customer": "Any customer with an account, regardless of "
-                               "order history.",
-            "Churn": "A subscription cancelled at any point in its lifetime, "
-                     "including immediate reactivations.",
-            "Delivered Shipment": "A shipment marked dispatched by the "
-                                  "warehouse, whether or not a delivery scan "
-                                  "exists.",
-        }
         by_col = {c["column_id"]: c for a in assets for c in a["columns"]}
         for term in self.glossary:
-            text = contradictions.get(term["name"])
+            text = TERM_CONTRADICTIONS.get(term["name"])
             if not text or not term["linked_column_ids"]:
                 continue
             for cid in term["linked_column_ids"][:2]:

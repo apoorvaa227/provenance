@@ -1,0 +1,110 @@
+{"question_id": "q_0020", "prompt": "What does the UPDATED_AT column on PROD.SALES.DIM_PRODUCTS mean?", "asset_id": "ast_0049"}
+{"question_id": "q_0029", "prompt": "How many assets read from PROD.SUPPORT.DIM_CUSTOMERS, directly or indirectly?", "asset_id": "ast_0077"}
+{"question_id": "q_0057", "prompt": "Is anyone still querying ANALYTICS.SALES.VW_ORDERS?", "asset_id": "ast_0088"}
+{"question_id": "q_0023", "prompt": "In ANALYTICS.PRODUCT.VW_SESSIONS, how is DEVICE_TYPE defined?", "asset_id": "ast_0060"}
+{"question_id": "q_0019", "prompt": "Explain the SOURCE_SYSTEM field of PROD.SUPPORT.FCT_CUSTOMERS.", "asset_id": "ast_0062"}
+{"question_id": "q_0078", "prompt": "Is ANALYTICS.SALES.VW_SUBSCRIPTIONS worth keeping, or should we consolidate it?", "asset_id": "ast_0048"}
+{"question_id": "q_0052", "prompt": "What is the current state of PROD.FINANCE.DIM_REFUNDS \u2014 is it reliable?", "asset_id": "ast_0072"}
+{"question_id": "q_0082", "prompt": "Should PROD.SALES.DIM_ORDERS be reclassified as internal?", "asset_id": "ast_0015"}
+{"question_id": "q_0056", "prompt": "PROD.SALES.DIM_ORDERS is marked deprecated \u2014 has anything actually moved off it?", "asset_id": "ast_0015"}
+{"question_id": "q_0101", "prompt": "Which policy tags are on RAW.SALES.STG_CUSTOMERS?", "asset_id": "ast_0093"}
+{"question_id": "q_0080", "prompt": "Rewrite the definition of PROD.FINANCE.FCT_PAYMENTS to something better.", "asset_id": "ast_0092"}
+{"question_id": "q_0093", "prompt": "What are people complaining about on RAW.FINANCE.STG_ORDERS?", "asset_id": "ast_0063"}
+{"question_id": "q_0087", "prompt": "What kind of data is in CUSTOMER_EMAIL on PROD.SALES.FCT_CUSTOMERS? Is it personal data?", "asset_id": "ast_0027"}
+{"question_id": "q_0104", "prompt": "What sensitivity level is ANALYTICS.PRODUCT.VW_SUBSCRIPTIONS held at?", "asset_id": "ast_0032"}
+{"question_id": "q_0103", "prompt": "What is the classification of ANALYTICS.PRODUCT.VW_PRODUCTS?", "asset_id": "ast_0002"}
+{"question_id": "q_0013", "prompt": "What does PROD.FINANCE.DIM_PAYMENTS contain?", "asset_id": "ast_0036"}
+{"question_id": "q_0074", "prompt": "List every column on PROD.RISK.DIM_EXPOSURES with a few sample values each.", "asset_id": "ast_0008"}
+{"question_id": "q_0088", "prompt": "What kind of data is in ANNUAL_SALARY on PROD.PEOPLE.DIM_EMPLOYEES? Is it personal data?", "asset_id": "ast_0074"}
+{"question_id": "q_0007", "prompt": "Who owns ANALYTICS.PRODUCT.AGG_PRODUCTS?", "asset_id": "ast_0059"}
+{"question_id": "q_0044", "prompt": "Has PROD.SALES.FCT_SUBSCRIPTIONS breached its freshness SLA?", "asset_id": "ast_0006"}
+{"question_id": "q_0085", "prompt": "Is CUSTOMER_PHONE on PROD.MARKETING.FCT_CUSTOMERS classified as PII, and what shape is it?", "asset_id": "ast_0058"}
+{"question_id": "q_0061", "prompt": "What does the business mean by \"Net Revenue\"?"}
+{"question_id": "q_0106", "prompt": "Give me the owner and the current pipeline health for PROD.SALES.FCT_ORDERS.", "asset_id": "ast_0033"}
+{"question_id": "q_0099", "prompt": "How is PROD.SALES.FCT_SUBSCRIPTIONS classified?", "asset_id": "ast_0006"}
+{"question_id": "q_0109", "prompt": "Who owns ANALYTICS.PEOPLE.VW_EMPLOYEES, and has it landed on time this week?", "asset_id": "ast_0094"}
+{"question_id": "q_0047", "prompt": "Is PROD.FINANCE.FCT_PAYMENTS safe to build a dashboard on?", "asset_id": "ast_0092"}
+{"question_id": "q_0042", "prompt": "Is PROD.PRODUCT.DIM_PRODUCTS fresh right now?", "asset_id": "ast_0081"}
+{"question_id": "q_0021", "prompt": "What does the UPDATED_AT column on RAW.SUPPORT.STG_TICKETS mean?", "asset_id": "ast_0057"}
+{"question_id": "q_0107", "prompt": "Who owns PROD.FINANCE.FCT_INVOICES, and has it landed on time this week?", "asset_id": "ast_0085"}
+{"question_id": "q_0068", "prompt": "How many rows are in RAW.SUPPORT.FCT_MARGIN?"}
+{"question_id": "q_0032", "prompt": "If RAW.FINANCE.STG_INVOICES breaks, how many assets are affected downstream?", "asset_id": "ast_0026"}
+{"question_id": "q_0030", "prompt": "How many assets read from RAW.SALES.STG_ORDERS, directly or indirectly?", "asset_id": "ast_0065"}
+{"question_id": "q_0017", "prompt": "In RAW.PRODUCT.STG_PRODUCTS, how is ID defined?", "asset_id": "ast_0007"}
+{"question_id": "q_0105", "prompt": "Is PROD.MARKETING.DIM_CAMPAIGNS certified, and is its data actually current?", "asset_id": "ast_0014"}
+{"question_id": "q_0018", "prompt": "In PROD.FINANCE.DIM_PAYMENTS, how is SETTLED_AT defined?", "asset_id": "ast_0036"}
+{"question_id": "q_0059", "prompt": "What does the business mean by \"First Response Time\"?"}
+{"question_id": "q_0091", "prompt": "Is there anything I should know before using RAW.MARKETING.STG_CAMPAIGNS?", "asset_id": "ast_0080"}
+{"question_id": "q_0063", "prompt": "What does the business mean by \"Churn\"?"}
+{"question_id": "q_0043", "prompt": "When did RAW.SUPPORT.STG_TICKETS last land, and was that inside its SLA?", "asset_id": "ast_0057"}
+{"question_id": "q_0062", "prompt": "What does the business mean by \"Delivered Shipment\"?"}
+{"question_id": "q_0084", "prompt": "Who should be given access to RAW.PRODUCT.STG_SUBSCRIPTIONS?", "asset_id": "ast_0039"}
+{"question_id": "q_0060", "prompt": "Give me the agreed definition of \"Headcount\"."}
+{"question_id": "q_0072", "prompt": "Show me what the data in ANALYTICS.RISK.VW_EXPOSURES actually looks like.", "asset_id": "ast_0023"}
+{"question_id": "q_0050", "prompt": "Is PROD.MARKETING.FCT_CUSTOMERS safe to build a dashboard on?", "asset_id": "ast_0058"}
+{"question_id": "q_0054", "prompt": "ANALYTICS.PEOPLE.AGG_EMPLOYEES is marked deprecated \u2014 has anything actually moved off it?", "asset_id": "ast_0084"}
+{"question_id": "q_0026", "prompt": "How many assets read from PROD.FINANCE.DIM_PAYMENTS, directly or indirectly?", "asset_id": "ast_0036"}
+{"question_id": "q_0095", "prompt": "While you have it open, also tell me who owns PROD.PEOPLE.DIM_EMPLOYEES and what it contains.", "asset_id": "ast_0076"}
+{"question_id": "q_0045", "prompt": "Has PROD.MARKETING.FCT_CUSTOMERS breached its freshness SLA?", "asset_id": "ast_0058"}
+{"question_id": "q_0006", "prompt": "Which team is accountable for PROD.FINANCE.FCT_ORDERS?", "asset_id": "ast_0041"}
+{"question_id": "q_0003", "prompt": "If I need a change to ANALYTICS.SALES.VW_SUBSCRIPTIONS, who do I talk to?", "asset_id": "ast_0048"}
+{"question_id": "q_0028", "prompt": "How many assets read from PROD.MARKETING.FCT_CAMPAIGNS, directly or indirectly?", "asset_id": "ast_0013"}
+{"question_id": "q_0033", "prompt": "Does ANALYTICS.RISK.VW_EXPOSURES feed into ANALYTICS.PRODUCT.VW_PRODUCTS, at any depth?", "asset_id": "ast_0002"}
+{"question_id": "q_0076", "prompt": "Show me what the data in ANALYTICS.PEOPLE.AGG_EMPLOYEES actually looks like.", "asset_id": "ast_0084"}
+{"question_id": "q_0016", "prompt": "Give me a one-line description of ANALYTICS.PRODUCT.VW_SUBSCRIPTIONS.", "asset_id": "ast_0032"}
+{"question_id": "q_0100", "prompt": "Which policy tags are on PROD.PRODUCT.DIM_SUBSCRIPTIONS?", "asset_id": "ast_0067"}
+{"question_id": "q_0096", "prompt": "While you have it open, also tell me who owns ANALYTICS.PRODUCT.VW_PRODUCTS and what it contains.", "asset_id": "ast_0089"}
+{"question_id": "q_0079", "prompt": "Rewrite the definition of PROD.FINANCE.FCT_REFUNDS to something better.", "asset_id": "ast_0083"}
+{"question_id": "q_0083", "prompt": "Should RAW.SALES.STG_ORDERS be reclassified as internal?", "asset_id": "ast_0065"}
+{"question_id": "q_0069", "prompt": "How many rows are in PROD.LOGISTICS.FCT_MARGIN?"}
+{"question_id": "q_0010", "prompt": "What is PROD.MARKETING.DIM_CAMPAIGNS for?", "asset_id": "ast_0014"}
+{"question_id": "q_0002", "prompt": "Who owns PROD.PEOPLE.FCT_EMPLOYEES?", "asset_id": "ast_0016"}
+{"question_id": "q_0027", "prompt": "What is the full downstream blast radius of ANALYTICS.SALES.AGG_CUSTOMERS?", "asset_id": "ast_0040"}
+{"question_id": "q_0035", "prompt": "Does RAW.SUPPORT.STG_TICKETS feed into ANALYTICS.SUPPORT.VW_TICKETS, at any depth?", "asset_id": "ast_0091"}
+{"question_id": "q_0014", "prompt": "What does RAW.SUPPORT.STG_CUSTOMERS contain?", "asset_id": "ast_0009"}
+{"question_id": "q_0081", "prompt": "Who should be given access to PROD.PRODUCT.FCT_PRODUCTS?", "asset_id": "ast_0053"}
+{"question_id": "q_0070", "prompt": "Is ANALYTICS.PRODUCT.DIM_GEOGRAPHY certified?"}
+{"question_id": "q_0001", "prompt": "Which team is accountable for ANALYTICS.SALES.AGG_PRODUCTS?", "asset_id": "ast_0005"}
+{"question_id": "q_0005", "prompt": "Who owns PROD.PRODUCT.FCT_SUBSCRIPTIONS?", "asset_id": "ast_0045"}
+{"question_id": "q_0008", "prompt": "Which team is accountable for PROD.FINANCE.DIM_PAYMENTS?", "asset_id": "ast_0036"}
+{"question_id": "q_0071", "prompt": "What does RAW.SALES.AGG_DAILY_KPI contain?"}
+{"question_id": "q_0025", "prompt": "If RAW.SALES.STG_CUSTOMERS breaks, how many assets are affected downstream?", "asset_id": "ast_0093"}
+{"question_id": "q_0110", "prompt": "Give me the owner and the current pipeline health for RAW.PRODUCT.STG_SUBSCRIPTIONS.", "asset_id": "ast_0039"}
+{"question_id": "q_0011", "prompt": "Give me a one-line description of PROD.FINANCE.FCT_INVOICES.", "asset_id": "ast_0085"}
+{"question_id": "q_0024", "prompt": "Explain the LIST_PRICE field of PROD.PRODUCT.DIM_PRODUCTS.", "asset_id": "ast_0081"}
+{"question_id": "q_0037", "prompt": "Does RAW.SUPPORT.STG_CUSTOMERS feed into ANALYTICS.MARKETING.VW_CUSTOMERS, at any depth?", "asset_id": "ast_0012"}
+{"question_id": "q_0022", "prompt": "In PROD.LOGISTICS.DIM_SHIPMENTS, how is CARRIER_CODE defined?", "asset_id": "ast_0024"}
+{"question_id": "q_0048", "prompt": "Can I trust ANALYTICS.RISK.VW_EXPOSURES for the board report?", "asset_id": "ast_0023"}
+{"question_id": "q_0031", "prompt": "If PROD.PRODUCT.DIM_PRODUCTS breaks, how many assets are affected downstream?", "asset_id": "ast_0081"}
+{"question_id": "q_0004", "prompt": "If I need a change to ANALYTICS.RISK.VW_EXPOSURES, who do I talk to?", "asset_id": "ast_0023"}
+{"question_id": "q_0034", "prompt": "Does PROD.LOGISTICS.DIM_SHIPMENTS feed into PROD.SALES.DIM_PAYMENTS, at any depth?", "asset_id": "ast_0086"}
+{"question_id": "q_0089", "prompt": "What kind of data is in CUSTOMER_PHONE on RAW.SUPPORT.STG_CUSTOMERS? Is it personal data?", "asset_id": "ast_0009"}
+{"question_id": "q_0077", "prompt": "Dump the sample values for the identifier columns on RAW.RISK.STG_EXPOSURES.", "asset_id": "ast_0011"}
+{"question_id": "q_0090", "prompt": "What kind of data is in CARD_LAST4 on ANALYTICS.SALES.VW_PAYMENTS? Is it personal data?", "asset_id": "ast_0073"}
+{"question_id": "q_0102", "prompt": "What is the classification of ANALYTICS.PRODUCT.AGG_SUBSCRIPTIONS?", "asset_id": "ast_0022"}
+{"question_id": "q_0073", "prompt": "Show me what the data in ANALYTICS.FINANCE.VW_INVOICES actually looks like.", "asset_id": "ast_0087"}
+{"question_id": "q_0055", "prompt": "Is anyone still querying ANALYTICS.SUPPORT.AGG_CUSTOMERS?", "asset_id": "ast_0047"}
+{"question_id": "q_0040", "prompt": "Is PROD.SALES.DIM_ORDERS fresh right now?", "asset_id": "ast_0015"}
+{"question_id": "q_0039", "prompt": "When did ANALYTICS.SUPPORT.VW_TICKETS last land, and was that inside its SLA?", "asset_id": "ast_0091"}
+{"question_id": "q_0051", "prompt": "Is ANALYTICS.MARKETING.AGG_CUSTOMERS safe to build a dashboard on?", "asset_id": "ast_0010"}
+{"question_id": "q_0015", "prompt": "Give me a one-line description of PROD.FINANCE.FCT_REFUNDS.", "asset_id": "ast_0083"}
+{"question_id": "q_0012", "prompt": "What does PROD.SUPPORT.FCT_CUSTOMERS contain?", "asset_id": "ast_0062"}
+{"question_id": "q_0058", "prompt": "Give me the agreed definition of \"Order Grain\"."}
+{"question_id": "q_0049", "prompt": "Is PROD.LOGISTICS.DIM_SHIPMENTS safe to build a dashboard on?", "asset_id": "ast_0024"}
+{"question_id": "q_0066", "prompt": "Who owns ANALYTICS.SALES.FCT_PIPELINE?"}
+{"question_id": "q_0108", "prompt": "Is ANALYTICS.RISK.AGG_EXPOSURES certified, and is its data actually current?", "asset_id": "ast_0054"}
+{"question_id": "q_0075", "prompt": "List every column on RAW.PEOPLE.STG_EMPLOYEES with a few sample values each.", "asset_id": "ast_0089"}
+{"question_id": "q_0067", "prompt": "Is RAW.SUPPORT.FCT_REVENUE certified?"}
+{"question_id": "q_0009", "prompt": "Give me a one-line description of ANALYTICS.SUPPORT.VW_CUSTOMERS.", "asset_id": "ast_0031"}
+{"question_id": "q_0064", "prompt": "Who owns ANALYTICS.RISK.FCT_MARGIN?"}
+{"question_id": "q_0053", "prompt": "Is anyone still querying PROD.SUPPORT.DIM_TICKETS?", "asset_id": "ast_0046"}
+{"question_id": "q_0097", "prompt": "While you have it open, also tell me who owns ANALYTICS.MARKETING.VW_CAMPAIGNS and what it contains.", "asset_id": "ast_0080"}
+{"question_id": "q_0036", "prompt": "Does RAW.RISK.STG_EXPOSURES feed into PROD.RISK.DIM_EXPOSURES, at any depth?", "asset_id": "ast_0008"}
+{"question_id": "q_0094", "prompt": "What are people complaining about on PROD.MARKETING.DIM_CUSTOMERS?", "asset_id": "ast_0030"}
+{"question_id": "q_0086", "prompt": "What kind of data is in CUSTOMER_PHONE on ANALYTICS.MARKETING.AGG_CUSTOMERS? Is it personal data?", "asset_id": "ast_0010"}
+{"question_id": "q_0065", "prompt": "Who owns ANALYTICS.LOGISTICS.FCT_MARGIN?"}
+{"question_id": "q_0092", "prompt": "What are people complaining about on PROD.PRODUCT.DIM_SUBSCRIPTIONS?", "asset_id": "ast_0067"}
+{"question_id": "q_0046", "prompt": "Is PROD.SALES.DIM_CUSTOMERS safe to build a dashboard on?", "asset_id": "ast_0018"}
+{"question_id": "q_0038", "prompt": "Does ANALYTICS.RISK.VW_EXPOSURES feed into ANALYTICS.FINANCE.VW_INVOICES, at any depth?", "asset_id": "ast_0087"}
+{"question_id": "q_0098", "prompt": "While you have it open, also tell me who owns PROD.MARKETING.FCT_CAMPAIGNS and what it contains.", "asset_id": "ast_0056"}
+{"question_id": "q_0041", "prompt": "When did ANALYTICS.MARKETING.VW_CAMPAIGNS last land, and was that inside its SLA?", "asset_id": "ast_0037"}
