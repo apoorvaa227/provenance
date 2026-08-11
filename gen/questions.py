@@ -124,6 +124,10 @@ class QGen:
         # not wrong for citing the record it was about.
         allow = set(allowed) if allowed is not None else set()
         allow |= set(required)
+        # Citing the policy an answer was decided under is always legitimate,
+        # whatever the question. An answer that says "withheld under pol_002"
+        # without naming pol_002 is less useful, not more in scope.
+        allow |= {p["policy_id"] for p in self.c["policies"]}
         if scope:
             allow |= {scope}
             allow |= {c["column_id"] for c in self.by_id[scope]["columns"]}
