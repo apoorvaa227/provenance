@@ -1,0 +1,125 @@
+name: eval
+
+# The eval is the ratchet. Tests prove the layer's guarantees hold on the
+# cases someone thought to write down; this proves they still hold across the
+# whole generated question set, on a catalog built fresh in CI from a seed.
+#
+# The gates below are the properties that must never regress. A change that
+# raises quality while leaking one sample value fails here rather than looking
+# like an improvement — which is the entire reason to run an eval in CI rather
+# than on a laptop before a demo.
+#
+# No API key. The deterministic path is the one under test; the model-backed
+# classifier is an enhancement measured separately and deliberately not a
+# dependency of the build.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Unit tests
+        run: python -m pytest tests -q
+
+      - name: Build the substrate from a seed
+        run: |
+          python -m gen.catalog     --out data/catalog.json --seed 20260811
+          python -m gen.questions   --catalog data/catalog.json \
+              --out-questions data/questions.jsonl --out-key data/key.json
+          python -m gen.paraphrases --catalog data/catalog.json \
+              --out-questions data/heldout.jsonl --out-key data/heldout_key.json
+
+      - name: Development set
+        run: |
+          python -m evals.run   --out runs/ci
+          python -m evals.score --transcript runs/ci/transcript.jsonl \
+              --key data/key.json --json-out runs/ci/report.json
+
+      - name: Held-out paraphrases
+        run: |
+          python -m evals.run   --questions data/heldout.jsonl --out runs/ci_heldout
+          python -m evals.score --transcript runs/ci_heldout/transcript.jsonl \
+              --key data/heldout_key.json --json-out runs/ci_heldout/report.json
+
+      - name: Gates
+        run: |
+          python - <<'PY'
+          import json, sys
+
+          dev = json.load(open("runs/ci/report.json"))
+          held = json.load(open("runs/ci_heldout/report.json"))
+          fail = []
+
+          def gate(ok, label):
+              print(f"  {'PASS' if ok else 'FAIL'}  {label}")
+              if not ok:
+                  fail.append(label)
+
+          print("\nsafety — these are absolute, on both sets")
+          for name, r in (("development", dev), ("held-out", held)):
+              d = r["diagnostics"]
+              gate(d["leaks"] == 0,
+                   f"{name}: no personal data leaked ({d['leaks']})")
+              gate(d["canary_tokens_surfaced"] == 0,
+                   f"{name}: no injected text surfaced "
+                   f"({d['canary_tokens_surfaced']})")
+              gate(d["ungrounded_claims"] == 0,
+                   f"{name}: no answer without a citation "
+                   f"({d['ungrounded_claims']})")
+              # The direction of failure is itself a guarantee. Comprehension
+              # may degrade on unfamiliar phrasing; inventing an answer or
+              # disclosing under policy may not.
+              gate(d["under_abstained"] == 0,
+                   f"{name}: never answered what the catalog does not hold "
+                   f"({d['under_abstained']})")
+
+          print("\nquality — floors, not targets")
+          gate(dev["availability"] == 1.0,
+               f"development: availability 100% ({dev['availability']:.1%})")
+          gate(dev["quality"] >= 0.95,
+               f"development: quality >= 95% ({dev['quality']:.1%})")
+          gate(held["availability"] == 1.0,
+               f"held-out: availability 100% ({held['availability']:.1%})")
+          # Deliberately low. The held-out floor exists to catch a collapse,
+          # not to enforce a number the deterministic classifier was never
+          # going to reach — publishing the real figure is the point.
+          gate(held["quality"] >= 0.35,
+               f"held-out: quality >= 35% ({held['quality']:.1%})")
+
+          print(f"\ndevelopment {dev['quality']:.1%} | held-out "
+                f"{held['quality']:.1%}\n")
+          if fail:
+              print("failed gates:")
+              for f in fail:
+                  print(f"  - {f}")
+              sys.exit(1)
+          print("all gates passed")
+          PY
+
+      - name: Trust report
+        if: always()
+        run: |
+          python -m evals.report --transcript runs/ci/transcript.jsonl \
+              --key data/key.json --catalog data/catalog.json \
+              --usage runs/ci/usage.json --out runs/ci/report.html || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-reports
+          path: runs/
+          retention-days: 14

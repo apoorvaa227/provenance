@@ -79,7 +79,7 @@ def main() -> None:
 
     latencies, failures = [], 0
     with transcript.open("w", encoding="utf-8") as fh:
-        for q in questions:
+        for i, q in enumerate(questions, start=1):
             started = time.perf_counter()
             try:
                 response = call(q)
@@ -97,6 +97,13 @@ def main() -> None:
                                  "response": response,
                                  "error": error,
                                  "latency_s": round(elapsed, 4)}) + "\n")
+            # Flush per answer. A model-backed run takes minutes against a
+            # rate-limited free tier, and a buffered transcript makes it
+            # indistinguishable from a hung one — which is how you end up
+            # reading a stale file from a previous run and believing it.
+            fh.flush()
+            if i % 10 == 0 or i == len(questions):
+                print(f"  {i}/{len(questions)}", flush=True)
 
     usage = {"mode": args.mode, "questions": len(questions),
              "transport_failures": failures,

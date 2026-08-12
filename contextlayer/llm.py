@@ -46,6 +46,30 @@ from contextlayer.agents import RULES, RegexClassifier
 from contextlayer.provider import Provider
 
 MAX_RETRIES = int(os.environ.get("PROVENANCE_MAX_RETRIES", "2"))
+RETRY_DELAY_S = float(os.environ.get("PROVENANCE_BACKOFF", "2.0"))
+
+
+def classify_failure(exc: Exception) -> str:
+    """`transient` is worth waiting for; `terminal` never is.
+
+    A run that cannot tell them apart reports the same thing for "the free
+    tier is throttling you" and "your key is wrong", and those need opposite
+    responses — one wants patience, the other wants a human.
+    """
+    name = type(exc).__name__.lower()
+    text = str(exc).lower()
+    if "ratelimit" in name or "429" in text or "quota" in text \
+            or "resource_exhausted" in text:
+        return "transient"
+    if any(s in name for s in ("timeout", "connection", "apiconnection")) \
+            or "503" in text or "overloaded" in text or "internalserver" in text:
+        return "transient"
+    if any(s in name for s in ("authentication", "permission", "notfound",
+                               "badrequest")) \
+            or any(s in text for s in ("401", "403", "404", "api key",
+                                       "invalid_argument")):
+        return "terminal"
+    return "transient"
 
 INTENTS = [name for name, _ in RULES] + ["unknown"]
 
@@ -135,6 +159,8 @@ class ModelClassifier:
         # questions to learn the same fact 110 times.
         self._consecutive_failures = 0
         self._breaker_at = int(os.environ.get("PROVENANCE_BREAKER", "3"))
+        self._cache: dict[str, str] = {}
+        self._cache_hits = 0
         try:
             self.provider = provider or Provider.detect()
         except Exception as e:                            # noqa: BLE001
@@ -158,6 +184,8 @@ class ModelClassifier:
             "tokens_in": self._in,
             "tokens_out": self._out,
             "cached_tokens_in": self._cached,
+            "cache_hits": self._cache_hits,
+            "unique_prompts": len(self._cache),
             "mean_classify_latency_s": round(
                 self._latency / self._calls, 4) if self._calls else 0.0,
             "unavailable_reason": self._reason,
@@ -166,6 +194,22 @@ class ModelClassifier:
     # -- classification ---------------------------------------------------
 
     def __call__(self, prompt: str) -> str:
+        # The router classifies, then dispatches to a desk that classifies the
+        # same prompt again to pick its branch. Harmless with a regex; with a
+        # model it billed 182 calls for 110 questions — a 65% overhead that
+        # only showed up because the run reports its call count.
+        #
+        # Memoising is safe precisely because classification is a pure
+        # function of the prompt: same input, same label, and the desks were
+        # already relying on that.
+        if prompt in self._cache:
+            self._cache_hits += 1
+            return self._cache[prompt]
+        label = self._classify(prompt)
+        self._cache[prompt] = label
+        return label
+
+    def _classify(self, prompt: str) -> str:
         if self.provider is None:
             return self.fallback(prompt)
         if self._consecutive_failures >= self._breaker_at:
@@ -193,13 +237,24 @@ class ModelClassifier:
                 return intent if intent in INTENTS else "unknown"
 
             except Exception as e:                       # noqa: BLE001
-                if attempt < MAX_RETRIES:
-                    time.sleep(0.4 * (2 ** attempt))
+                kind = classify_failure(e)
+                # A transient failure and a terminal one are not the same
+                # event, and collapsing them was a real bug here: a per-minute
+                # rate limit would trip the breaker and quietly turn the rest
+                # of a run into a regex run that still called itself a model
+                # run. Back off on transient, give up fast on terminal.
+                if kind == "transient" and attempt < MAX_RETRIES:
+                    time.sleep(RETRY_DELAY_S * (2 ** attempt))
                     continue
+                if kind == "terminal":
+                    # Bad credentials or an unknown model will not fix
+                    # themselves. Stop paying for the discovery on every
+                    # remaining question.
+                    self._consecutive_failures = self._breaker_at
                 self._failed += 1
                 self._consecutive_failures += 1
                 if self._reason is None:
-                    self._reason = f"{type(e).__name__}: {e}"[:200]
+                    self._reason = f"{kind}: {type(e).__name__}: {e}"[:220]
                 # Degrade, never fail. A classification the model could not
                 # produce is one the regex still can, and the answer that
                 # follows is computed from records either way.

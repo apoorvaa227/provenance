@@ -254,11 +254,18 @@ def main() -> None:
         print(f"\n  no provider\n    {e}\n")
         raise SystemExit(1)
 
-    print(f"\n  provider   {p.name}\n  model      {p.model}")
+    loaded = load_dotenv()
+    if loaded:
+        print(f"\n  .env       loaded {', '.join(loaded)}")
+    print(f"  provider   {p.name}\n  requested  {p.model}")
     try:
+        # Generous ceiling on purpose. A reasoning model can spend tokens
+        # before the first brace, and a truncated reply fails the JSON parse
+        # in a way that reads exactly like a bad key — which is a rubbish
+        # thing for a credentials check to tell you.
         text, usage = p.complete(
             "Reply with a JSON object and nothing else.",
-            'Return {"ok": true}.', max_tokens=64)
+            'Return {"ok": true}.', max_tokens=2048)
         got = Provider.parse_json(text)
         print(f"  served     {p.served_model}")
         print(f"  live call  ok — {usage['in']} in / {usage['out']} out tokens")

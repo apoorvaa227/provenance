@@ -35,9 +35,13 @@ context.
 from __future__ import annotations
 
 import json
+import os
 import time
 
 from contextlayer.provider import Provider
+
+RETRIES = int(os.environ.get("PROVENANCE_MAX_RETRIES", "4"))
+BACKOFF = float(os.environ.get("PROVENANCE_BACKOFF", "2.0"))
 
 SYSTEM = """You answer questions about a data catalog for engineers who will \
 act on what you say.
@@ -146,18 +150,31 @@ class NaiveAgent:
                 f"{json.dumps(ctx, indent=1)}\n\n"
                 f"Question: {envelope.get('prompt', '')}")
 
-        try:
-            started = time.perf_counter()
-            text, usage = self.provider.complete(SYSTEM, user, max_tokens=1200)
-            self._latency += time.perf_counter() - started
-            self._calls += 1
-            self._in += usage["in"]
-            self._out += usage["out"]
-            self._cached += usage["cached"]
-            out = Provider.parse_json(text)
-        except Exception as e:                             # noqa: BLE001
-            self._failed += 1
-            return self._blank(qid, f"{type(e).__name__}: {e}"[:160])
+        # Retries matter more here than in the classifier: a free-tier rate
+        # limit that silently turned every answer into an abstention would
+        # hand this arm a perfect safety record it did not earn, and flatter
+        # the layer it is supposed to be a fair control for.
+        out = None
+        for attempt in range(RETRIES + 1):
+            try:
+                started = time.perf_counter()
+                text, usage = self.provider.complete(SYSTEM, user,
+                                                     max_tokens=2048)
+                self._latency += time.perf_counter() - started
+                self._calls += 1
+                self._in += usage["in"]
+                self._out += usage["out"]
+                self._cached += usage["cached"]
+                out = Provider.parse_json(text)
+                break
+            except Exception as e:                         # noqa: BLE001
+                if attempt < RETRIES:
+                    time.sleep(BACKOFF * (2 ** attempt))
+                    continue
+                self._failed += 1
+                return self._blank(qid, f"{type(e).__name__}: {e}"[:160])
+        if out is None:
+            return self._blank(qid, "no response")
 
         # Shape it into the response envelope — and nothing more. No citation
         # check, no scope check, no masking, no canary scrub. Whatever the

@@ -208,6 +208,23 @@ class Ecosystem:
         intent = self.classify(prompt)
         asset = cat.resolve(scope)
 
+        if asset is None and not scope:
+            # No scope was supplied, so adopt the asset the prompt names if
+            # the catalog holds it. The eval always supplies a scope, which is
+            # why this was invisible there — but `/answer` and the MCP `ask`
+            # tool both accept a bare question, and without this every one of
+            # them abstained on a table that was sitting right there.
+            #
+            # Adopting is not a scope break: there is no authorisation to
+            # violate when the caller set none. When a scope *is* supplied it
+            # still binds, and the check below still refuses questions that
+            # reach past it.
+            for name in cat.looks_like_qualified_name(prompt):
+                found = cat.resolve(name)
+                if found is not None:
+                    asset, scope = found, found["asset_id"]
+                    break
+
         # Coverage. A qualified name the catalog does not hold is the
         # household-name case: the reply would be fluent, sourceless and
         # indistinguishable from a real one.
