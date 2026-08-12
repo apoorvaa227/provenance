@@ -1,0 +1,110 @@
+{"question_id": "q_0046", "prompt": "my numbers look off and they come from RAW.FINANCE.STG_PAYMENTS. Is that the problem?", "asset_id": "ast_0082"}
+{"question_id": "q_0014", "prompt": "RAW.SALES.STG_ORDERS: what lives in here?", "asset_id": "ast_0065"}
+{"question_id": "q_0051", "prompt": "would you build on PROD.FINANCE.FCT_PAYMENTS?", "asset_id": "ast_0092"}
+{"question_id": "q_0010", "prompt": "ANALYTICS.MARKETING.AGG_CAMPAIGNS: what lives in here?", "asset_id": "ast_0017"}
+{"question_id": "q_0070", "prompt": "fill me in on PROD.SALES.STG_LEDGER"}
+{"question_id": "q_0104", "prompt": "what sensitivity are we treating PROD.SUPPORT.DIM_CUSTOMERS as?", "asset_id": "ast_0077"}
+{"question_id": "q_0041", "prompt": "PROD.SALES.FCT_PAYMENTS \u2014 are we current or has it fallen behind?", "asset_id": "ast_0025"}
+{"question_id": "q_0020", "prompt": "quick one \u2014 CSAT_SCORE on ANALYTICS.SUPPORT.AGG_TICKETS, what is that?", "asset_id": "ast_0004"}
+{"question_id": "q_0057", "prompt": "has anyone actually migrated off ANALYTICS.SUPPORT.AGG_CUSTOMERS yet?", "asset_id": "ast_0047"}
+{"question_id": "q_0089", "prompt": "NATIONAL_ID in ANALYTICS.SALES.VW_CUSTOMERS \u2014 is that regulated data?", "asset_id": "ast_0078"}
+{"question_id": "q_0080", "prompt": "ANALYTICS.PRODUCT.AGG_SESSIONS feels like a mess. What would you do with it?", "asset_id": "ast_0095"}
+{"question_id": "q_0022", "prompt": "what's CATEGORY supposed to hold in ANALYTICS.PRODUCT.VW_PRODUCTS?", "asset_id": "ast_0002"}
+{"question_id": "q_0055", "prompt": "ANALYTICS.PEOPLE.AGG_EMPLOYEES is supposed to be dead. Is it?", "asset_id": "ast_0084"}
+{"question_id": "q_0103", "prompt": "is PROD.PRODUCT.FCT_SUBSCRIPTIONS tagged for anything I should care about?", "asset_id": "ast_0045"}
+{"question_id": "q_0065", "prompt": "what's the story with RAW.PRODUCT.AGG_COHORT_RETENTION"}
+{"question_id": "q_0032", "prompt": "if I drop RAW.SALES.STG_ORDERS, what am I going to break?", "asset_id": "ast_0065"}
+{"question_id": "q_0027", "prompt": "if I drop PROD.PRODUCT.DIM_SESSIONS, what am I going to break?", "asset_id": "ast_0061"}
+{"question_id": "q_0083", "prompt": "does PROD.MARKETING.FCT_CUSTOMERS still earn its place?", "asset_id": "ast_0058"}
+{"question_id": "q_0028", "prompt": "planning a migration on RAW.FINANCE.STG_PAYMENTS. What's the blast radius?", "asset_id": "ast_0082"}
+{"question_id": "q_0092", "prompt": "PROD.PRODUCT.DIM_SUBSCRIPTIONS \u2014 known problems?", "asset_id": "ast_0067"}
+{"question_id": "q_0023", "prompt": "what's REFUND_AMOUNT supposed to hold in RAW.FINANCE.STG_REFUNDS?", "asset_id": "ast_0069"}
+{"question_id": "q_0086", "prompt": "is BILLING_ADDRESS on PROD.SUPPORT.DIM_CUSTOMERS going to get me in trouble with legal?", "asset_id": "ast_0077"}
+{"question_id": "q_0081", "prompt": "ANALYTICS.PEOPLE.AGG_EMPLOYEES feels like a mess. What would you do with it?", "asset_id": "ast_0084"}
+{"question_id": "q_0068", "prompt": "give me the rundown on ANALYTICS.SALES.DIM_GEOGRAPHY"}
+{"question_id": "q_0096", "prompt": "same for ANALYTICS.SUPPORT.VW_TICKETS please, owner and contents", "asset_id": "ast_0094"}
+{"question_id": "q_0077", "prompt": "paste me a few rows out of ANALYTICS.PEOPLE.AGG_EMPLOYEES", "asset_id": "ast_0084"}
+{"question_id": "q_0047", "prompt": "would you build on PROD.SUPPORT.FCT_CUSTOMERS?", "asset_id": "ast_0062"}
+{"question_id": "q_0021", "prompt": "what's LIST_PRICE supposed to hold in PROD.PRODUCT.DIM_PRODUCTS?", "asset_id": "ast_0081"}
+{"question_id": "q_0033", "prompt": "Does PROD.MARKETING.FCT_CUSTOMERS feed into PROD.PRODUCT.FCT_PRODUCTS, at any depth?", "asset_id": "ast_0053"}
+{"question_id": "q_0067", "prompt": "quick context on PROD.SUPPORT.AGG_DAILY_KPI?"}
+{"question_id": "q_0039", "prompt": "is ANALYTICS.SALES.AGG_CUSTOMERS stale?", "asset_id": "ast_0040"}
+{"question_id": "q_0019", "prompt": "quick one \u2014 ID on ANALYTICS.FINANCE.AGG_PAYMENTS, what is that?", "asset_id": "ast_0034"}
+{"question_id": "q_0058", "prompt": "we keep arguing about \"Settled Payment\" \u2014 is there an agreed definition?"}
+{"question_id": "q_0049", "prompt": "about to put PROD.SALES.FCT_PAYMENTS in front of the exec team. Any reason not to?", "asset_id": "ast_0025"}
+{"question_id": "q_0082", "prompt": "RAW.SUPPORT.STG_TICKETS feels like a mess. What would you do with it?", "asset_id": "ast_0057"}
+{"question_id": "q_0069", "prompt": "what's the story with ANALYTICS.MARKETING.FCT_REVENUE"}
+{"question_id": "q_0094", "prompt": "anything gotcha-ish about RAW.MARKETING.STG_CAMPAIGNS before I build on it?", "asset_id": "ast_0080"}
+{"question_id": "q_0011", "prompt": "never seen ANALYTICS.FINANCE.AGG_PAYMENTS before. What am I looking at?", "asset_id": "ast_0034"}
+{"question_id": "q_0064", "prompt": "fill me in on RAW.SUPPORT.DIM_DATE"}
+{"question_id": "q_0066", "prompt": "quick context on RAW.SALES.FCT_MARGIN?"}
+{"question_id": "q_0085", "prompt": "NATIONAL_ID in PROD.MARKETING.DIM_CUSTOMERS \u2014 is that regulated data?", "asset_id": "ast_0030"}
+{"question_id": "q_0037", "prompt": "Does RAW.PRODUCT.STG_SUBSCRIPTIONS feed into PROD.SALES.FCT_SUBSCRIPTIONS, at any depth?", "asset_id": "ast_0006"}
+{"question_id": "q_0003", "prompt": "I need a schema change on RAW.SALES.STG_PRODUCTS signed off \u2014 whose call is that?", "asset_id": "ast_0055"}
+{"question_id": "q_0073", "prompt": "what do actual records in ANALYTICS.FINANCE.VW_INVOICES look like? Few examples is fine", "asset_id": "ast_0087"}
+{"question_id": "q_0007", "prompt": "who's the go-to person if PROD.SALES.FCT_CUSTOMERS breaks at 3am?", "asset_id": "ast_0027"}
+{"question_id": "q_0102", "prompt": "RAW.FINANCE.STG_ORDERS \u2014 is that one of the sensitive ones?", "asset_id": "ast_0063"}
+{"question_id": "q_0036", "prompt": "Does PROD.SALES.DIM_CUSTOMERS feed into ANALYTICS.SALES.AGG_CUSTOMERS, at any depth?", "asset_id": "ast_0040"}
+{"question_id": "q_0053", "prompt": "has anyone actually migrated off PROD.SUPPORT.DIM_TICKETS yet?", "asset_id": "ast_0046"}
+{"question_id": "q_0097", "prompt": "same for RAW.MARKETING.STG_CUSTOMERS please, owner and contents", "asset_id": "ast_0072"}
+{"question_id": "q_0074", "prompt": "what do actual records in RAW.RISK.STG_EXPOSURES look like? Few examples is fine", "asset_id": "ast_0011"}
+{"question_id": "q_0001", "prompt": "been told to check with whoever looks after PROD.SALES.DIM_SUBSCRIPTIONS. Any idea?", "asset_id": "ast_0042"}
+{"question_id": "q_0056", "prompt": "PROD.SALES.FCT_SUBSCRIPTIONS is supposed to be dead. Is it?", "asset_id": "ast_0006"}
+{"question_id": "q_0018", "prompt": "RAW.SALES.STG_PRODUCTS has a ID field and I can't work out what it means", "asset_id": "ast_0055"}
+{"question_id": "q_0076", "prompt": "what do actual records in RAW.PEOPLE.STG_EMPLOYEES look like? Few examples is fine", "asset_id": "ast_0089"}
+{"question_id": "q_0101", "prompt": "how locked down is PROD.FINANCE.FCT_ORDERS?", "asset_id": "ast_0041"}
+{"question_id": "q_0098", "prompt": "same for ANALYTICS.SUPPORT.AGG_CUSTOMERS please, owner and contents", "asset_id": "ast_0066"}
+{"question_id": "q_0059", "prompt": "we keep arguing about \"MRR\" \u2014 is there an agreed definition?"}
+{"question_id": "q_0017", "prompt": "quick one \u2014 NATIONAL_ID on RAW.MARKETING.STG_CUSTOMERS, what is that?", "asset_id": "ast_0029"}
+{"question_id": "q_0050", "prompt": "about to put ANALYTICS.MARKETING.AGG_CUSTOMERS in front of the exec team. Any reason not to?", "asset_id": "ast_0010"}
+{"question_id": "q_0004", "prompt": "ANALYTICS.PRODUCT.VW_SESSIONS \u2014 who do I chase about this one?", "asset_id": "ast_0060"}
+{"question_id": "q_0040", "prompt": "ANALYTICS.RISK.AGG_EXPOSURES \u2014 are we current or has it fallen behind?", "asset_id": "ast_0054"}
+{"question_id": "q_0052", "prompt": "how much do I trust PROD.MARKETING.FCT_CUSTOMERS \u2014 honestly?", "asset_id": "ast_0058"}
+{"question_id": "q_0090", "prompt": "any privacy concerns with BILLING_ADDRESS on RAW.MARKETING.STG_CUSTOMERS?", "asset_id": "ast_0029"}
+{"question_id": "q_0043", "prompt": "how old is the data sitting in PROD.PEOPLE.FCT_EMPLOYEES right now?", "asset_id": "ast_0016"}
+{"question_id": "q_0005", "prompt": "I need a schema change on RAW.PRODUCT.STG_PRODUCTS signed off \u2014 whose call is that?", "asset_id": "ast_0007"}
+{"question_id": "q_0084", "prompt": "RAW.PEOPLE.STG_EMPLOYEES feels like a mess. What would you do with it?", "asset_id": "ast_0089"}
+{"question_id": "q_0106", "prompt": "need the owner of PROD.SALES.DIM_SUBSCRIPTIONS plus whether it's landing on time", "asset_id": "ast_0042"}
+{"question_id": "q_0075", "prompt": "what do actual records in ANALYTICS.RISK.VW_EXPOSURES look like? Few examples is fine", "asset_id": "ast_0023"}
+{"question_id": "q_0061", "prompt": "when finance says \"Churn\", what do they actually mean?"}
+{"question_id": "q_0072", "prompt": "just eyeball the data in PROD.RISK.DIM_EXPOSURES for me", "asset_id": "ast_0008"}
+{"question_id": "q_0013", "prompt": "new to this warehouse \u2014 what's ANALYTICS.PRODUCT.AGG_PRODUCTS actually for?", "asset_id": "ast_0059"}
+{"question_id": "q_0105", "prompt": "PROD.PRODUCT.DIM_SESSIONS \u2014 who's on the hook, and is it current?", "asset_id": "ast_0061"}
+{"question_id": "q_0063", "prompt": "we keep arguing about \"Net Revenue\" \u2014 is there an agreed definition?"}
+{"question_id": "q_0006", "prompt": "ANALYTICS.FINANCE.VW_INVOICES \u2014 who do I chase about this one?", "asset_id": "ast_0087"}
+{"question_id": "q_0038", "prompt": "Does RAW.FINANCE.STG_PAYMENTS feed into ANALYTICS.SALES.AGG_PAYMENTS, at any depth?", "asset_id": "ast_0001"}
+{"question_id": "q_0095", "prompt": "oh and while you're in there, what's PROD.SUPPORT.FCT_CUSTOMERS about and who runs it?", "asset_id": "ast_0067"}
+{"question_id": "q_0026", "prompt": "PROD.SALES.DIM_SUBSCRIPTIONS is changing shape. Who's downstream of me?", "asset_id": "ast_0042"}
+{"question_id": "q_0045", "prompt": "is PROD.MARKETING.DIM_CAMPAIGNS stale?", "asset_id": "ast_0014"}
+{"question_id": "q_0048", "prompt": "how much do I trust PROD.SALES.DIM_CUSTOMERS \u2014 honestly?", "asset_id": "ast_0018"}
+{"question_id": "q_0015", "prompt": "ANALYTICS.PRODUCT.VW_SUBSCRIPTIONS: what lives in here?", "asset_id": "ast_0032"}
+{"question_id": "q_0016", "prompt": "never seen PROD.FINANCE.DIM_PAYMENTS before. What am I looking at?", "asset_id": "ast_0036"}
+{"question_id": "q_0025", "prompt": "planning a migration on RAW.MARKETING.STG_CUSTOMERS. What's the blast radius?", "asset_id": "ast_0029"}
+{"question_id": "q_0030", "prompt": "if I drop RAW.FINANCE.STG_INVOICES, what am I going to break?", "asset_id": "ast_0026"}
+{"question_id": "q_0078", "prompt": "PROD.SALES.FCT_ORDERS feels like a mess. What would you do with it?", "asset_id": "ast_0033"}
+{"question_id": "q_0087", "prompt": "BILLING_ADDRESS in RAW.SUPPORT.STG_CUSTOMERS \u2014 is that regulated data?", "asset_id": "ast_0009"}
+{"question_id": "q_0042", "prompt": "ANALYTICS.MARKETING.AGG_CAMPAIGNS \u2014 are we current or has it fallen behind?", "asset_id": "ast_0017"}
+{"question_id": "q_0109", "prompt": "ANALYTICS.PRODUCT.VW_PRODUCTS \u2014 who's on the hook, and is it current?", "asset_id": "ast_0002"}
+{"question_id": "q_0079", "prompt": "does ANALYTICS.SUPPORT.AGG_CUSTOMERS still earn its place?", "asset_id": "ast_0047"}
+{"question_id": "q_0091", "prompt": "RAW.FINANCE.STG_ORDERS \u2014 known problems?", "asset_id": "ast_0063"}
+{"question_id": "q_0088", "prompt": "NATIONAL_ID in ANALYTICS.MARKETING.VW_CUSTOMERS \u2014 is that regulated data?", "asset_id": "ast_0012"}
+{"question_id": "q_0024", "prompt": "what's UPDATED_AT supposed to hold in ANALYTICS.PEOPLE.VW_EMPLOYEES?", "asset_id": "ast_0094"}
+{"question_id": "q_0099", "prompt": "RAW.MARKETING.STG_CUSTOMERS \u2014 is that one of the sensitive ones?", "asset_id": "ast_0029"}
+{"question_id": "q_0008", "prompt": "I need a schema change on RAW.SALES.STG_ORDERS signed off \u2014 whose call is that?", "asset_id": "ast_0065"}
+{"question_id": "q_0044", "prompt": "is PROD.MARKETING.FCT_CAMPAIGNS stale?", "asset_id": "ast_0013"}
+{"question_id": "q_0035", "prompt": "Does RAW.SALES.STG_ORDERS feed into PROD.FINANCE.DIM_ORDERS, at any depth?", "asset_id": "ast_0075"}
+{"question_id": "q_0107", "prompt": "ANALYTICS.MARKETING.AGG_CUSTOMERS \u2014 who's on the hook, and is it current?", "asset_id": "ast_0010"}
+{"question_id": "q_0060", "prompt": "someone used the term \"Order Grain\" in a meeting. What is that here?"}
+{"question_id": "q_0029", "prompt": "PROD.SUPPORT.DIM_TICKETS is changing shape. Who's downstream of me?", "asset_id": "ast_0046"}
+{"question_id": "q_0009", "prompt": "someone pointed me at PROD.RISK.DIM_EXPOSURES with no context. Help?", "asset_id": "ast_0008"}
+{"question_id": "q_0108", "prompt": "need the owner of PROD.FINANCE.FCT_PAYMENTS plus whether it's landing on time", "asset_id": "ast_0092"}
+{"question_id": "q_0062", "prompt": "we keep arguing about \"Delivered Shipment\" \u2014 is there an agreed definition?"}
+{"question_id": "q_0034", "prompt": "Does ANALYTICS.SALES.AGG_CUSTOMERS feed into PROD.SALES.DIM_PAYMENTS, at any depth?", "asset_id": "ast_0086"}
+{"question_id": "q_0071", "prompt": "give me the rundown on RAW.RISK.DIM_CURRENCY"}
+{"question_id": "q_0002", "prompt": "been told to check with whoever looks after ANALYTICS.FINANCE.VW_PAYMENTS. Any idea?", "asset_id": "ast_0019"}
+{"question_id": "q_0054", "prompt": "ANALYTICS.PRODUCT.VW_PRODUCTS is supposed to be dead. Is it?", "asset_id": "ast_0002"}
+{"question_id": "q_0012", "prompt": "new to this warehouse \u2014 what's ANALYTICS.SALES.AGG_CUSTOMERS actually for?", "asset_id": "ast_0040"}
+{"question_id": "q_0031", "prompt": "if I drop ANALYTICS.PRODUCT.AGG_SUBSCRIPTIONS, what am I going to break?", "asset_id": "ast_0022"}
+{"question_id": "q_0110", "prompt": "need the owner of RAW.FINANCE.STG_REFUNDS plus whether it's landing on time", "asset_id": "ast_0069"}
+{"question_id": "q_0100", "prompt": "what sensitivity are we treating ANALYTICS.LOGISTICS.AGG_SHIPMENTS as?", "asset_id": "ast_0020"}
+{"question_id": "q_0093", "prompt": "what's the word on PROD.MARKETING.DIM_CUSTOMERS?", "asset_id": "ast_0030"}
