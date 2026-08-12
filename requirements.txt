@@ -2,4 +2,5 @@
 # reports is computed from the catalog, and no model call sits in the path of
 # a number. The model is used for intent and prose, behind the verifier.
 anthropic==0.40.0
+mcp==1.27.2
 pytest==8.3.4
