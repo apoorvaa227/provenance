@@ -81,6 +81,7 @@ def load() -> None:
         print(f"loaded {len(catalog.assets)} assets, "
               f"{sum(len(a['columns']) for a in catalog.assets)} columns from "
               f"{CATALOG_PATH}; classifier="
+              
               f"{_state['classifier'].get('classifier')}", flush=True)
     except Exception as e:                                 # noqa: BLE001
         _state["error"] = f"{type(e).__name__}: {e}"
